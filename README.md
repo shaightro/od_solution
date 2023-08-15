@@ -8,5 +8,9 @@ Open Dart를 이용하여 제무제표의 정보를 읽어 원하는 값을 뽑�
 - 한 번에 대략 몇 개의 명령을 실행하는 지 확인 필요
 - 입출력 방식 결정 필요
 
+
 - 사용 라이브러리: <https://github.com/shaightro/OpenDartReader/> (Under MIT License)
 - 도구: 파이썬 및 PyQt. 공부 필요: <https://product.kyobobook.co.kr/detail/S000201323866>
+
+
+- OpenDart 인증키: 개인
