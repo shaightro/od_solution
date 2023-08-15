@@ -1,40 +1,42 @@
-# This Python file uses the following encoding: euc-kr
 import OpenDartReader as od
 import common
 
-if __name__ == "__main__":
+def ex_func():
     api_key = common.od_api_key
 
-    print("OpenDart °´Ã¼¸¦ ÃÊ±âÈ­ÇÕ´Ï´Ù...")
+    print("OpenDart ê°ì²´ë¥¼ ì´ˆê¸°í™”í•©ë‹ˆë‹¤...")
     dart = od(api_key)
 
-    print("Çö´ëÁ¦Ã¶ÀÇ ±â¾÷ °íÀ¯ÄÚµå¸¦ °Ë»öÇÕ´Ï´Ù...")
-    now_code = dart.find_corp_code('Çö´ëÁ¦Ã¶')
-    print("Çö´ëÁ¦Ã¶ÀÇ ÄÚµå´Â:", now_code)
+    print("í˜„ëŒ€ì œì² ì˜ ê¸°ì—… ê³ ìœ ì½”ë“œë¥¼ ê²€ìƒ‰í•©ë‹ˆë‹¤...")
+    now_code = dart.find_corp_code('í˜„ëŒ€ì œì² ')
+    print("í˜„ëŒ€ì œì² ì˜ ì½”ë“œëŠ”:", now_code)
 
-    print("Çö´ëÁ¦Ã¶ÀÇ 2023³â ¹İ±âº¸°í¼­¸¦ ºÒ·¯¿É´Ï´Ù...")
+    print("í˜„ëŒ€ì œì² ì˜ 2023ë…„ ë°˜ê¸°ë³´ê³ ì„œë¥¼ ë¶ˆëŸ¬ì˜µë‹ˆë‹¤...")
 
     hd = dart.finstate(now_code, 2023, 11012)
-    hd_fs_con = hd[hd['fs_nm'] == '¿¬°áÀç¹«Á¦Ç¥']
-    hd_fs = hd[hd['fs_nm'] == 'Àç¹«Á¦Ç¥']
+    hd_fs_con = hd[hd['fs_nm'] == 'ì—°ê²°ì¬ë¬´ì œí‘œ']
+    hd_fs = hd[hd['fs_nm'] == 'ì¬ë¬´ì œí‘œ']
 
-    print("¿¬°áÀç¹«Á¦Ç¥¿Í Àç¹«Á¦Ç¥ÀÇ ÀÚº»ÃÑ°è¸¦ °¢°¢ ÀĞ½À´Ï´Ù...")
+    print("ì—°ê²°ì¬ë¬´ì œí‘œì™€ ì¬ë¬´ì œí‘œì˜ ìë³¸ì´ê³„ë¥¼ ê°ê° ì½ìŠµë‹ˆë‹¤...")
 
-    # ¿¬°áÀç¹«Á¦Ç¥ ÀÚº»ÃÑ°è
-    fs_con_total = hd_fs_con[hd_fs_con['account_nm'] == 'ÀÚº»ÃÑ°è']['thstrm_amount']
+    # ì—°ê²°ì¬ë¬´ì œí‘œ ìë³¸ì´ê³„
+    fs_con_total = hd_fs_con[hd_fs_con['account_nm'] == 'ìë³¸ì´ê³„']['thstrm_amount']
     fs_con_total = float(fs_con_total.values[0].replace(',', ''))
-    print("¿¬°áÀç¹«Á¦Ç¥ ÀÚº»ÃÑ°è:", fs_con_total)
+    print("ì—°ê²°ì¬ë¬´ì œí‘œ ìë³¸ì´ê³„:", fs_con_total)
     if fs_con_total * 0.05 < 1e10:
-        print(fs_con_total, "* 0.05 < 10,000,000,000ÀÌ¹Ç·Î, °ø½Ã")
+        print(fs_con_total, "* 0.05 < 10,000,000,000ì´ë¯€ë¡œ, ê³µì‹œ")
     else:
-        print(fs_con_total, "* 0.05 >= 10,000,000,000ÀÌ¹Ç·Î, °ø½Ã X")
+        print(fs_con_total, "* 0.05 >= 10,000,000,000ì´ë¯€ë¡œ, ê³µì‹œ X")
 
-    # Àç¹«Á¦Ç¥ ÀÚº»ÃÑ°è
-    fs_total = hd_fs[hd_fs['account_nm'] == 'ÀÚº»ÃÑ°è']['thstrm_amount']
+    # ì¬ë¬´ì œí‘œ ìë³¸ì´ê³„
+    fs_total = hd_fs[hd_fs['account_nm'] == 'ìë³¸ì´ê³„']['thstrm_amount']
     fs_total = float(fs_total.values[0].replace(',', ''))
-    print("Àç¹«Á¦Ç¥ ÀÚº»ÃÑ°è:", fs_total)
+    print("ì¬ë¬´ì œí‘œ ìë³¸ì´ê³„:", fs_total)
     if fs_total * 0.05 < 1e10:
-        print(fs_total, "* 0.05 < 10,000,000,000ÀÌ¹Ç·Î, °ø½Ã")
+        print(fs_total, "* 0.05 < 10,000,000,000ì´ë¯€ë¡œ, ê³µì‹œ")
     else:
-        print(fs_total, "* 0.05 >= 10,000,000,000ÀÌ¹Ç·Î, °ø½Ã X")
+        print(fs_total, "* 0.05 >= 10,000,000,000ì´ë¯€ë¡œ, ê³µì‹œ X")
 
+
+if __name__ == "__main__":
+    ex_func()
