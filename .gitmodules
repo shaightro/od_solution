@@ -1,0 +1,3 @@
+[submodule "OpenDartReader"]
+	path = OpenDartReader
+	url = https://github.com/shaightro/OpenDartReader.git
